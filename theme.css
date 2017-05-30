@@ -1,0 +1,11 @@
+:root {
+  --headerColor: rgba(255,255,255,0.5); /*Background color for the header that holds the navigation and title*/
+  --titleColor: #000000; /*Black*/
+  --titleDescriptionColor: #757575 ; /*Gray*/
+  --navigationLinkActiveColor: #000000; /*Black - text color for current page link*/
+  --navigationLinkInactiveColor: #757575; /*Gray - text color for other page links*/
+
+  --separatorColor: #BDBDBD; /*The color of the separators (borders between content)*/
+  --separatorThickness: 1px; /*The thickness of the separators*/
+  --separatorWidth: 100%; /*How wide should the separator be (default: 80% of screen width)*/
+}

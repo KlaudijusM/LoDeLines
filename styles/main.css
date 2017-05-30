@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'quicksandlight';
+    src: url('../fonts/quicksand-light-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand-light-webfont.woff') format('woff'),
+         url('../fonts/quicksand-light-webfont.tff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'quicksandregular';
+    src: url('../fonts/quicksand-regular-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand-regular-webfont.woff') format('woff'),
+         url('../fonts/quicksand-regular-webfont.tff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html {
+  font-family:'quicksandregular';
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  text-align: center;
+  background: url("../media/images/background.png");
+  background-repeat: repeat;
+}
+
+header {
+  width: auto;
+  height: auto;
+  background: var(--headerColor);
+  margin: 0;
+  padding: 0;
+}
+
+#pageTitle, #titleDescription {
+  font-family:'quicksandregular';
+  font-weight: 400;
+  font-size: 350%;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: block;
+  position: static;
+  margin: 0;
+  padding: 0;
+  color: var(--titleCol);
+}
+
+#titleDescription {
+  font-size: 250%;
+  color: var(--titleDescriptionColor);
+  margin-bottom: 1%;
+}
+
+.separator {
+  width: var(--separatorWidth);
+  height: var(--separatorThickness);
+  position: static;
+  display: block;
+  background: var(--separatorColor);
+  background: -webkit-linear-gradient(left, var(--headerColor) , var(--separatorColor) , var(--headerColor)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, var(--headerColor) , var(--separatorColor) , var(--headerColor)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, var(--headerColor) , var(--separatorColor) , var(--headerColor)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, var(--headerColor) , var(--separatorColor) , var(--headerColor)); /* Standard syntax */
+  padding: 0;
+  margin: 0 auto;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--navigationLinkInactiveColor);
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin: 0;
+  position: static;
+  display: inline-block;
+  border-bottom: 1px solid white;
+  transition-duration: 0.5s;
+  font-size: 115%;
+}
+
+nav {
+  position: static;
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'quicksandlight';
+}
+
+#currentPageLink {
+  border-bottom: 1px solid var(--navigationLinkActiveColor);
+  color: var(--navigationLinkActiveColor);
+}
+
+nav a:hover {
+  border-bottom: 1px solid var(--navigationLinkActiveColor);
+  color: var(--navigationLinkActiveColor);
+}
