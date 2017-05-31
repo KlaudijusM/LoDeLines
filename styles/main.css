@@ -103,3 +103,53 @@ nav a:hover {
   border-bottom: 1px solid var(--navigationLinkActiveColor);
   color: var(--navigationLinkActiveColor);
 }
+
+#deadlineTitleInfo, #deadlineTitle, #deadlineGroup, #deadlineCountdown,
+#deadlineDueDate {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: static;
+  margin-top: 1%;
+  font-family: 'quicksandlight';
+  font-size: 150%;
+}
+
+#deadlineTitle {
+  margin-top: .5%;
+}
+
+#deadlineName, #deadlineWorth {
+  font-family: 'quicksandregular';
+  font-weight: 400;
+  font-style: italic;
+  color: var(--deadlineNameColor);
+}
+
+#deadlineWorth {
+  color: var(--deadlineWorthColor);
+}
+
+#deadlineGroup a {
+  font-family: 'quicksandregular';
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--deadlineGroupColor);
+}
+
+#deadlineCountdown {
+  font-size: 170%;
+  margin-top: 2%;
+}
+
+#deadlineCountdown #countDown {
+  font-family: 'quicksandregular';
+  font-weight: 400;
+  font-style: italic;
+  color: var(--deadlineCountdownColor);
+}
+
+#deadlineDueDate {
+  margin-top: .5%;
+  font-size: 130%;
+}

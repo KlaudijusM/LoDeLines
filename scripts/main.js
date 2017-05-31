@@ -67,9 +67,7 @@ function showDeadlineInfo(deadlineIndex){
   var deadlineCountdown = document.getElementById("deadlineCountdown");
   deadlineCountdown.innerHTML = "Due in " + "<span id='countDown'></span>";
   var deadlineDueDate = document.getElementById("deadlineDueDate");
-  deadlineDueDate.innerHTML = "(" +
-                              moment(deadlines[deadlineIndex][2]).calendar() +
-                              ")";
+  deadlineDueDate.innerHTML = "(" + deadlines[deadlineIndex][2] + ")";
 }
 
 function runCountdown(time) {

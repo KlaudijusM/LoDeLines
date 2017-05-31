@@ -8,4 +8,9 @@
   --separatorColor: #BDBDBD; /*The color of the separators (borders between content)*/
   --separatorThickness: 1px; /*The thickness of the separators*/
   --separatorWidth: 100%; /*How wide should the separator be (default: 80% of screen width)*/
+
+  --deadlineNameColor: #B71C1C;
+  --deadlineWorthColor: #B71C1C;
+  --deadlineGroupColor: #B71C1C;
+  --deadlineCountdownColor: #D50000;
 }
