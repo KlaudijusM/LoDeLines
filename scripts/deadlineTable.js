@@ -8,17 +8,17 @@ $( document ).ready(function() {
 });
 
 function populateTable(table, deadlineArray){
-  var rowStyling = {
-    0: "left",
-    1: "center",
-    2: "center",
-    3: "left",
-    4: "right"
+  var dataSizing = {
+    0: "32%",
+    1: "14%",
+    2: "14%",
+    3: "20%",
+    4: "15%"
   };
-  for (var i = 0; i < deadlineArray.length; i++) {
+  for (i = 0; i < deadlineArray.length; i++) {
     var rowData = {
       0: deadlineArray[i][0],
-      1: "<a href='./group.html?name=" +
+      1: "<a class='deadlineTableGroup' href='./group.html?name=" +
                       deadlineArray[i][1] + "'>" +
                       deadlineArray[i][1] + "</a>",
       2: deadlineArray[i][3],
@@ -28,11 +28,12 @@ function populateTable(table, deadlineArray){
     var tr = document.createElement('tr');
     table.getElementsByTagName("tbody")[0].appendChild(tr);
 
-    for (var j = 0; j < 5; j++) {
+    for (j = 0; j < 5; j++) {
       var td = document.createElement('td');
       tr.appendChild(td);
       td.innerHTML = rowData[j];
-      td.style.textAlign = rowStyling[j];
+      td.style.width = dataSizing[j];
+      td.style.textAlign = "left";
     }
    }
 }
@@ -52,7 +53,7 @@ function createTable(tblName){
   tableTitle.className = "tableTitle";
   tableTitle.innerHTML = tblName;
   var tbl = document.createElement('table');
-  tbl.id = "deadlineTable";
+  tbl.className = "deadlineTable";
   var tbdy = document.createElement('tbody');
   printTableHeading(tbdy);
   tbl.appendChild(tbdy);
@@ -68,10 +69,10 @@ function printTableHeading(tableBody){
     0: "Title",
     1: "Group",
     2: "Worth",
-    3: "Due",
+    3: "Due Date",
     4: "Time Left"
   };
-  for (var i = 0; i < 5; i++){
+  for ( i = 0; i < 5; i++){
     var th = document.createElement('th');
     th.innerHTML= titles[i];
     tr.appendChild(th);
@@ -93,18 +94,22 @@ function timeLeftString(dueDate){
 }
 
 function removePastDeadlines(deadlineArray){
-  for (var i = 0; i < deadlineArray.length; i++){
-    if (moment(deadlineArray[i][2]).unix() - moment().unix() <= 0) {
-      deadlineArray.splice(i, 1);
+  var length = deadlineArray.length;
+  while (length--){
+    var timeLeft = moment(deadlineArray[length][2]).unix() - moment().unix();
+    if (timeLeft <= 0) {
+      deadlineArray.splice(length, 1);
     }
   }
   return deadlineArray;
 }
 
 function removeUpcomingDeadlines(deadlineArray){
-  for (var i = 0; i < deadlineArray.length; i++){
-    if (moment(deadlineArray[i][2]).unix() - moment().unix() > 0) {
-      deadlineArray.splice(i, 1);
+  var length = deadlineArray.length;
+  while (length--){
+    var timeLeft = moment(deadlineArray[length][2]).unix() - moment().unix();
+    if (timeLeft > 0) {
+      deadlineArray.splice(length, 1);
     }
   }
   return deadlineArray;

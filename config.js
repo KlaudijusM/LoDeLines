@@ -29,5 +29,6 @@
 */
 var deadlines = [
   ["Exam: Advanced Programming","ADVPROG","2017-05-26 16:00","50%"],
-  ["Exam: 3D Modelling and Animation","3DCGAA","2017-05-31 09:00","50%"]
+  ["Exam: 3D Modelling and Animation","3DCGAA","2017-05-30 09:00","50%"],
+  ["Exam: 4D Modelling and Animation","3DCGAA","2017-06-30 22:51","50%"]
 ];

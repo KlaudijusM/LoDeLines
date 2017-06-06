@@ -11,4 +11,14 @@
   --deadlineWorthColor: #B71C1C;
   --deadlineGroupColor: #B71C1C;
   --deadlineCountdownColor: #D50000;
+
+  --deadlineTableTitleColor: #444444;
+  --deadlineTableWidth: 60%;
+  --deadlineTableBorderColor: #C1C3D1;
+  --deadlineTableBackgroundColor: #FFFFFF;
+  --deadlineTableHeadingColor: #000000;
+  --deadlineTableHeadingBackgroundColor: #1b1e24;
+  --deadlineTableHoverColor: #4E5066;
+  --deadlineTableGroupColor: #B71C1C;
+  --deadlineTableGroupHoverColor: #FFFFFF;
 }
