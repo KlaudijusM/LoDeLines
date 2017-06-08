@@ -28,7 +28,8 @@
   More examples bellow.
 */
 var deadlines = [
-  ["Exam: Advanced Programming","ADVPROG","2017-05-26 16:00","50%"],
-  ["Exam: 3D Modelling and Animation","3DCGAA","2017-05-30 09:00","50%"],
-  ["Exam: 4D Modelling and Animation","3DCGAA","2017-06-30 22:51","50%"]
+  ["Back to university","UNI","2017-09-15 15:00",""],
+  ["Exam: 3D Modelling and Animation","3DCGAA","2018-05-16 09:00","50%"],
+  ["Coursework","GUDE","2017-03-30 16:00","100%"],
+  ["Holiday Flight","TRAVEL","2017-06-19 21:25",""]
 ];

@@ -7,10 +7,10 @@
   --separatorThickness: 1px; /*The thickness of the separators*/
   --separatorWidth: 100%; /*How wide should the separator be (default: 80% of screen width)*/
 
-  --deadlineNameColor: #B71C1C;
-  --deadlineWorthColor: #B71C1C;
+  --deadlineNameColor: #000000;
+  --deadlineWorthColor: #000000;
   --deadlineGroupColor: #B71C1C;
-  --deadlineCountdownColor: #D50000;
+  --deadlineCountdownColor: #FFFFFF;
 
   --deadlineTableTitleColor: #444444;
   --deadlineTableWidth: 60%;
@@ -18,7 +18,7 @@
   --deadlineTableBackgroundColor: #FFFFFF;
   --deadlineTableHeadingColor: #000000;
   --deadlineTableHeadingBackgroundColor: #1b1e24;
-  --deadlineTableHoverColor: #4E5066;
+  --deadlineTableHoverColor: #404040;
   --deadlineTableGroupColor: #B71C1C;
   --deadlineTableGroupHoverColor: #FFFFFF;
 }

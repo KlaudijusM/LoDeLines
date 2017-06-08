@@ -57,74 +57,80 @@ function showDeadlineInfo(deadlineIndex){
   titleText.innerHTML = "Next thing up:";
   var deadlineNameText = document.getElementById("deadlineTitle");
   deadlineNameText.innerHTML = "<span id='deadlineName'>"
-                         + deadlines[deadlineIndex][0] + "</span>" + " worth "
-                         + "<span id='deadlineWorth'>"
-                         + deadlines[deadlineIndex][3] + "</span>";
+                         + deadlines[deadlineIndex][0] + "</span>";
+  if (deadlines[deadlineIndex][3]) {
+    deadlineNameText.innerHTML += " worth "
+                           + "<span id='deadlineWorth'>"
+                           + deadlines[deadlineIndex][3] + "</span>";
+  }
   var deadlineGroupText = document.getElementById("deadlineGroup");
   deadlineGroupText.innerHTML = "For " + "<a href='./en/group.html?name=" +
                                 deadlines[deadlineIndex][1] + "'>" +
                                 deadlines[deadlineIndex][1] + "</a>";
-  var deadlineCountdown = document.getElementById("deadlineCountdown");
-  deadlineCountdown.innerHTML = "Due in<br>" + "<span id='countDown'></span>";
   var deadlineDueDate = document.getElementById("deadlineDueDate");
   deadlineDueDate.innerHTML = "(" + deadlines[deadlineIndex][2] + ")";
 }
 
 function runCountdown(time) {
   var countDown = document.getElementById("countDown");
+  printTimeLeft(time, countDown);
 
-  var differenceTime = moment(time).unix() - moment().unix();
-  var interval = 1000;
+  setInterval(function() {
+    printTimeLeft(time, countDown);
+  }
+  , 1000);
+}
 
-  duration = moment.duration(differenceTime * 1000, 'milliseconds'),
+function printTimeLeft(time, placeHolder){
+  var difference = moment(time).unix() - moment().unix();
+  var secondsLeft = moment.duration(difference, 'seconds');
+  if (secondsLeft < 0) location.reload();
 
-  setInterval(function(){
-    duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
+  var days = parseInt(secondsLeft.asDays());
+  var hours = secondsLeft.hours();
+  var minutes = secondsLeft.minutes();
+  var seconds = secondsLeft.seconds();
 
-    if (duration <= 0) location.reload();
+  var titles = {
+    0: "Days",
+    1: "Hours",
+    2: "Minutes",
+    3: "Seconds",
+  };
+  var data = {
+    0: days,
+    1: hours,
+    2: minutes,
+    3: seconds,
+  };
 
-    var d = moment.duration(duration).days(),
-        h = moment.duration(duration).hours(),
-        m = moment.duration(duration).minutes(),
-        s = moment.duration(duration).seconds();
+  placeHolder.innerHTML = "";
+  for (i = 0; i < 4; i++){
+    var number = data[i].toString();
+    var numberLength = number.length;
+    var parentContainer = document.createElement("div");
+    parentContainer.className = "digits-and-titles";
+    placeHolder.appendChild(parentContainer);
 
-    countDown.innerHTML = "";
-    switch (d) {
-      case 1:
-        countDown.innerHTML = d + " day ";
-        break;
-      case 0:
-        break;
-      default:
-        countDown.innerHTML = d + " days ";
+    var digitContainer = document.createElement("div");
+    digitContainer.className = "digit-container";
+    parentContainer.appendChild(digitContainer);
+
+    if (numberLength == 1) {
+      var digit = document.createElement("div");
+      digit.className = "digit";
+      digitContainer.appendChild(digit);
+      digit.innerHTML = "0";
     }
-    switch (h) {
-      case 1:
-        countDown.innerHTML = countDown.innerHTML + h + " hour ";
-        break;
-      case 0:
-        break;
-      default:
-        countDown.innerHTML = countDown.innerHTML + h + " hours ";
+    for (j = 0; j < numberLength; j++){
+      var digit = document.createElement("div");
+      digit.className = "digit";
+      digitContainer.appendChild(digit);
+      digit.innerHTML = number[j];
     }
-    switch (m) {
-      case 1:
-        countDown.innerHTML = countDown.innerHTML + m + " minute ";
-        break;
-      case 0:
-        break;
-      default:
-        countDown.innerHTML = countDown.innerHTML + m + " minutes ";
-    }
-    switch (s) {
-      case 1:
-        countDown.innerHTML = countDown.innerHTML + s + " second";
-        break;
-      case 0:
-        countDown.innerHTML = countDown.innerHTML + s + " seconds";
-        break;
-      default:
-        countDown.innerHTML = countDown.innerHTML + s + " seconds";
-    }
-  }, interval);
+    digitText = document.createElement("div");
+    digitText.className = "digit-title";
+    parentContainer.appendChild(digitText);
+    digitText.innerHTML = titles[i];
+  }
 }
