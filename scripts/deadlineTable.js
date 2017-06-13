@@ -1,3 +1,5 @@
+var currentDate = moment();
+
 $( document ).ready(function() {
   var upcomingDeadlinesTable = createTable("Upcoming Deadlines", "upcomingDeadlines");
   var pastDeadlinesTable = createTable("Past Deadlines", "pastDeadlines");
@@ -7,4 +9,6 @@ $( document ).ready(function() {
   populateTable(pastDeadlinesTable, pastDeadlines);
   removeUnneededTable(upcomingDeadlinesTable);
   removeUnneededTable(pastDeadlinesTable);
+  createCalendar();
+  populateCalendar(deadlines.slice(), 0, 2);
 });

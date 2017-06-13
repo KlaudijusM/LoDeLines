@@ -71,6 +71,7 @@ nav a {
   border-bottom: 1px solid white;
   transition-duration: 0.5s;
   font-size: 115%;
+  width: 10%;
 }
 
 nav {
@@ -211,6 +212,7 @@ nav a:hover {
   height: auto;
   color: #000000;
   vertical-align: center;
+  margin-bottom: 2%;
 }
 
 tbody {
@@ -222,7 +224,6 @@ tbody {
   border-radius:3px;
   border-collapse: collapse;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  animation: float 5s infinite;
 }
 
 th {
