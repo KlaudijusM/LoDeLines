@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+  /* Tries to get the upcoming deadline, throws an error if there's something
+     wrong with the data */
   var nextDeadline;
   try {
     nextDeadline = nextDeadlineIndex();
@@ -6,18 +8,25 @@ $( document ).ready(function() {
   catch (err){
     showConfigError();
   }
+
+  // If no upcoming deadlines
   if (nextDeadline == -1) showNoUpcomingDeadlines();
   else {
+    // Displays deadline info and runs a countdown.
     showDeadlineInfo(nextDeadline);
     runCountdown(deadlines[nextDeadline][2]);
   }
 });
 
+// Returns the next (first upcoming) deadline's index in the deadline array
 function nextDeadlineIndex() {
+  // First sets index as -1 in case there's no upcoming deadlines.
   var index = -1;
   var currentDateTime = moment().format('YYYY-MM-DD HH:mm');
   var upcomingDateTime;
 
+  /* Loops through the array of deadlines checking the dates of the deadlines
+     to find the nearest upcoming one. */
   for (var i = 0; i < deadlines.length; i++){
     var deadlineDue = moment(deadlines[i][2]).format('YYYY-MM-DD HH:mm');
 
@@ -35,6 +44,7 @@ function nextDeadlineIndex() {
   return index;
 }
 
+// Prints an error on screen if something is wrong with the deadline array.
 function showConfigError(){
   var title = document.getElementById("deadlineTitleInfo");
   title.innerHTML = "Error"
@@ -45,6 +55,7 @@ function showConfigError(){
   errorInstruction.innerHTML = "Please check your configuration file and try again.";
 }
 
+// Prints that there are no upcoming deadlines.
 function showNoUpcomingDeadlines() {
   var title = document.getElementById("deadlineTitleInfo");
   title.innerHTML = "Everything is done!";
@@ -52,6 +63,7 @@ function showNoUpcomingDeadlines() {
   description.innerHTML = "You have no upcoming deadlines!";
 }
 
+// Prints deadline info on screen
 function showDeadlineInfo(deadlineIndex){
   var titleText = document.getElementById("deadlineTitleInfo");
   titleText.innerHTML = "Next thing up:";
@@ -71,6 +83,7 @@ function showDeadlineInfo(deadlineIndex){
   deadlineDueDate.innerHTML = deadlines[deadlineIndex][2];
 }
 
+// Starts a countdown till the next deadline.
 function runCountdown(time) {
   var countDown = document.getElementById("countDown");
   printTimeLeft(time, countDown);
@@ -81,9 +94,11 @@ function runCountdown(time) {
   , 1000);
 }
 
+// Gets how much time is left until the next deadline
 function printTimeLeft(time, placeHolder){
   var difference = moment(time).unix() - moment().unix();
   var secondsLeft = moment.duration(difference, 'seconds');
+  // Reloads page if deadline due date is reached (to show next upcoming deadline)
   if (secondsLeft < 0) location.reload();
 
   var days = parseInt(secondsLeft.asDays());
@@ -104,6 +119,7 @@ function printTimeLeft(time, placeHolder){
     3: seconds,
   };
 
+  // Appends the countdown container.
   placeHolder.innerHTML = "";
   for (i = 0; i < 4; i++){
     var number = data[i].toString();

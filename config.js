@@ -30,6 +30,5 @@
 var deadlines = [
   ["Back to university","UNI","2017-09-15 15:00",""],
   ["Exam: 3D Modelling and Animation","3DCGAA","2018-05-16 09:00","50%"],
-  ["Coursework","GUDE","2017-03-30 16:00","100%"],
-  ["Holiday Flight","TRAVEL","2017-06-19 21:25",""]
+  ["Coursework","GUDE","2018-03-30 16:00","100%"]
 ];

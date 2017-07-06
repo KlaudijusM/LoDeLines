@@ -1,4 +1,6 @@
+// Populates a specific table with dealine array data
 function populateTable(table, deadlineArray){
+  // Style sizing for each column.
   var dataSizing = {
     0: "32%",
     1: "14%",
@@ -6,6 +8,7 @@ function populateTable(table, deadlineArray){
     3: "20%",
     4: "15%"
   };
+  // Loops through array and populates the table with data
   for (i = 0; i < deadlineArray.length; i++) {
     var rowData = {
       0: deadlineArray[i][0],
@@ -29,6 +32,7 @@ function populateTable(table, deadlineArray){
    }
 }
 
+// Destroys a table. Takes the table to be destroyed as a parameter.
 function destroyTable(table){
   try {
     table.innerHTML = "";
@@ -38,6 +42,8 @@ function destroyTable(table){
   }
 }
 
+// Creates a table by adding elements and assigning appropriate classes to them.
+// Takes a table name and table id as a parameters.
 function createTable(tblName, tblID){
   var body = document.getElementsByTagName('body')[0];
   var tableTitle = document.createElement('h1');
@@ -55,6 +61,7 @@ function createTable(tblName, tblID){
   return tbl;
 }
 
+// Prints the table headings for appropriate table. Takes a table body as a parameter.
 function printTableHeading(tableBody){
   var tr = document.createElement('tr');
   tableBody.appendChild(tr);
@@ -73,6 +80,7 @@ function printTableHeading(tableBody){
   }
 }
 
+// Returns how much time is left until due date.
 function timeLeftString(dueDate){
   var tLeft = moment(dueDate).unix() - moment().unix();
   var negative = (tLeft < 0) ? true : false;
@@ -83,10 +91,12 @@ function timeLeftString(dueDate){
   else if (hrsLeft > 1) stringTimeLeft = Math.floor(hrsLeft) + " hours";
   else stringTimeLeft = Math.floor(hrsLeft * 60) + " minutes";
 
+  // Adds "ago" if time is in the past.
   if (negative) stringTimeLeft = stringTimeLeft + " ago";
   return stringTimeLeft;
 }
 
+// Removes deadlines from array that have their due date in the past.
 function removePastDeadlines(deadlineArray){
   var length = deadlineArray.length;
   while (length--){
@@ -98,6 +108,7 @@ function removePastDeadlines(deadlineArray){
   return deadlineArray;
 }
 
+// Removes deadlines from array that have their due date in the future.
 function removeUpcomingDeadlines(deadlineArray){
   var length = deadlineArray.length;
   while (length--){
@@ -109,6 +120,7 @@ function removeUpcomingDeadlines(deadlineArray){
   return deadlineArray;
 }
 
+// Sorts table by column. Requires the column to be sorted by and the table to sort.
 function sortTable(field, tableID) {
   var rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   var table = document.getElementById(tableID);
@@ -146,6 +158,7 @@ function sortTable(field, tableID) {
   }
 }
 
+// Used to natural sort numbers.
 function alphanum(a, b) {
   function chunkify(t) {
     var tz = [], x = 0, y = -1, n = 0, i, j;
@@ -175,6 +188,8 @@ function alphanum(a, b) {
   return aa.length - bb.length;
 }
 
+// Returns an array of deadlines that have a specific group
+// Asks for the deadline array and the group to splice the array by.
 function getGroupDeadlinesFromArray(array, group){
   var length = array.length;
   while (length--){
@@ -185,6 +200,7 @@ function getGroupDeadlinesFromArray(array, group){
   return array;
 }
 
+// Gets the parameter passed in url query. Requires the parameters name and url.
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -195,6 +211,7 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+// Checks if a table has atleast one element and if not - removes it.
 function removeUnneededTable(table){
   var rows = table.rows.length;
   var tableID = table.id;

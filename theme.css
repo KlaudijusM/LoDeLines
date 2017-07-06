@@ -5,20 +5,21 @@
 
   --separatorColor: #BDBDBD; /*The color of the separators (borders between content)*/
   --separatorThickness: 1px; /*The thickness of the separators*/
-  --separatorWidth: 100%; /*How wide should the separator be (default: 80% of screen width)*/
+  --separatorWidth: 100%; /*How wide should the separator be (default: 100% of screen width)*/
 
-  --deadlineNameColor: #000000;
-  --deadlineWorthColor: #000000;
-  --deadlineGroupColor: #B71C1C;
-  --deadlineCountdownColor: #FFFFFF;
+  /*Title page colors*/
+  --deadlineNameColor: #000000; /*The color of the deadline title*/
+  --deadlineWorthColor: #000000; /*The color of the deadline worth*/
+  --deadlineGroupColor: #B71C1C; /*The color of the deadline group*/
+  --deadlineCountdownColor: #FFFFFF; /*The color of the deadline countdown numbers*/
 
-  --deadlineTableTitleColor: #444444;
-  --deadlineTableWidth: 60%;
-  --deadlineTableBorderColor: #C1C3D1;
-  --deadlineTableBackgroundColor: #FFFFFF;
-  --deadlineTableHeadingColor: #000000;
-  --deadlineTableHeadingBackgroundColor: #1b1e24;
-  --deadlineTableHoverColor: #404040;
-  --deadlineTableGroupColor: #B71C1C;
-  --deadlineTableGroupHoverColor: #FFFFFF;
+  --deadlineTableTitleColor: #444444; /*Deadline table title color*/
+  --deadlineTableWidth: 60%; /*Deadline table width*/
+  --deadlineTableBorderColor: #C1C3D1; /*Deadline table border color*/
+  --deadlineTableBackgroundColor: #FFFFFF; /*Deadline table background color*/
+  --deadlineTableHeadingColor: #000000; /*Deadline table heading text color*/
+  --deadlineTableHeadingBackgroundColor: #1b1e24; /*Deadline table border color*/
+  --deadlineTableHoverColor: #404040; /*Deadline table row color on hover*/
+  --deadlineTableGroupColor: #B71C1C; /*Group title colors in the table*/
+  --deadlineTableGroupHoverColor: #FFFFFF; /*Group title colors on hover*/
 }
