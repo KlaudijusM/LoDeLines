@@ -9,6 +9,6 @@ $( document ).ready(function() {
   populateTable(pastDeadlinesTable, pastDeadlines);
   removeUnneededTable(upcomingDeadlinesTable);
   removeUnneededTable(pastDeadlinesTable);
-  createCalendar();
+  createCalendar(true);
   populateCalendar(deadlines.slice(), 0, 2);
 });

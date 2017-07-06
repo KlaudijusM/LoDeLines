@@ -62,16 +62,14 @@ header {
 nav a {
   text-decoration: none;
   color: var(--navigationLinkInactiveColor);
-  padding: 1%;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding: 2%;
   margin: 0;
   position: static;
-  display: inline-block;
+  display: inline-flex;
   border-bottom: 1px solid white;
   transition-duration: 0.5s;
-  font-size: 115%;
-  width: 10%;
+  font-size: 100%;
+  width: auto;
 }
 
 nav {
@@ -81,16 +79,17 @@ nav {
   height: auto;
   margin: 0 auto;
   padding: 0;
+  font-size: 250%;
   font-family: 'quicksandlight';
 }
 
 #currentPageLink {
-  border-bottom: 1px solid var(--navigationLinkActiveColor);
+  border-bottom: 2px solid var(--navigationLinkActiveColor);
   color: var(--navigationLinkActiveColor);
 }
 
 nav a:hover {
-  border-bottom: 1px solid var(--navigationLinkActiveColor);
+  border-bottom: 2px solid var(--navigationLinkActiveColor);
   color: var(--navigationLinkActiveColor);
 }
 
@@ -102,18 +101,22 @@ nav a:hover {
   position: static;
   margin-top: 1%;
   font-family: 'quicksandlight';
-  font-size: 150%;
+  font-size: 300%;
+}
+
+#deadlineTitleInfo {
+  margin-top: 4%;
 }
 
 #deadlineTitle {
-  margin-top: 1%;
-  margin-bottom: 1%;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 #deadlineName, #deadlineWorth {
   font-family: 'quicksandregular';
   font-weight: 400;
-  font-size: 150%;
+  font-size: 200%;
   color: var(--deadlineNameColor);
 }
 
@@ -177,7 +180,7 @@ nav a:hover {
 .digit-title{
   height: 45%;
   width: 100%;
-  font-size: 60%;
+  font-size: 150%;
   margin: 0;
   padding: 0;
   margin-top: 10px;
@@ -188,7 +191,7 @@ nav a:hover {
 #deadlineDueDate {
   margin-top: .5%;
   font-family: 'quicksandregular';
-  font-size: 110%;
+  font-size: 300%;
 }
 
 .tableTitle {
@@ -197,11 +200,10 @@ nav a:hover {
   margin: 0;
   padding: 0;
   font-family: 'quicksandlight';
-  font-size: 200%;
+  font-size: 400%;
   font-weight: 300;
-  margin-top: 1.5%;
+  margin-top: 5%;
   margin-bottom: .5%;
-  margin-left: calc((100% - var(--deadlineTableWidth)) / 2);
   text-align: left;
   color: var(--deadlineTableTitleColor);
 }
@@ -217,7 +219,7 @@ nav a:hover {
 }
 
 tbody {
-  width: var(--deadlineTableWidth);
+  width: 100%;
   margin: 0 auto;
   padding: 0;
   height: auto;
@@ -258,7 +260,7 @@ tr {
   border-bottom: 1px solid var(--deadlineTableBorderColor);
   color: #666B85;
   font-weight:normal;
-  font-size: 110%;
+  font-size: 200%;
   text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 }
 
