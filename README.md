@@ -1,7 +1,7 @@
 # LoDeLines - Local Deadline Tracker
 
 
-### [Preview](klaudijusm.github.io/LoDeLines/index.html)
+### [Preview](https://klaudijusm.github.io/LoDeLines/index.html)
 
 
 ## What is it?
