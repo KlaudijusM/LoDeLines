@@ -232,13 +232,13 @@ function populateCalendar(eventArray, eventTitleIndex, eventTimeIndex){
     // Checks if an event array exists, if so, marks the day (adds special id).
     if (eventArray){
       for (j = 0; j < eventArray.length ; j++){
-        var deadlineDate = new Date(eventArray[j][eventTimeIndex]);
+        var deadlineDate = new Date(eventArray[j][eventTimeIndex].replace(' ', 'T'));
         var deadlineDay = deadlineDate.getDate();
         var deadlineMonth = deadlineDate.getMonth();
         var deadlineYear = deadlineDate.getFullYear();
         if (deadlineYear == calendarYear && deadlineMonth == calendarMonth && deadlineDay == i) {
           dayItem.classList.add('calendar-deadline-date');
-          dayItem.setAttribute('onclick',"calendarShowDeadline('" + deadlineDate + "');")
+          dayItem.setAttribute('onclick',"calendarShowDeadline('" + eventArray[j][eventTimeIndex] + "');")
         }
       }
     }
@@ -256,14 +256,15 @@ function populateCalendar(eventArray, eventTitleIndex, eventTimeIndex){
    Requires the title of the event and the time.
 */
 function calendarShowDeadline(eventDate){
+  eventDate = new Date(eventDate.replace(' ', 'T'));
   var notification = document.getElementById("calendarNotification");
   var notificationText = document.getElementById("calendarNotificationText");
   notification.style.display = "block";
   notificationText.innerHTML = "";
   for (i = 0; i < calendarData.length; i++){
     var eventTitle = calendarData[i][calendarTitleIndex];
-    var dataDate = new Date(calendarData[i][calendarTimeIndex]);
-    if (eventDate == dataDate){
+    var dataDate = new Date(calendarData[i][calendarTimeIndex].replace(' ', 'T'));
+    if (eventDate.getTime() == dataDate.getTime()){
       notificationText.innerHTML += eventTitle + " at " +
                                     addZero(dataDate.getHours())
                                     + ":" +
